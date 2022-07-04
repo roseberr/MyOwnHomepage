@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MyOwnHomepageApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(MyOwnHomepageApplication.class, args);
 	}
 
