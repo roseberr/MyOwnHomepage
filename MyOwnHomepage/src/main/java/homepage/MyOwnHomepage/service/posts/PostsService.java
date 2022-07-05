@@ -3,12 +3,16 @@ package homepage.MyOwnHomepage.service.posts;
 
 import homepage.MyOwnHomepage.domain.posts.Posts;
 import homepage.MyOwnHomepage.domain.posts.PostsRepository;
+import homepage.MyOwnHomepage.web.dto.PostsListResponseDto;
 import homepage.MyOwnHomepage.web.dto.PostsResponseDto;
 import homepage.MyOwnHomepage.web.dto.PostsSaveRequestDto;
 import homepage.MyOwnHomepage.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -34,4 +38,11 @@ public class PostsService {
         return new PostsResponseDto(entity);
 
     }
+    @Transactional(readOnly=true)
+
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(posts -> new PostsListResponseDto(posts))
+                .collect(Collectors.toList());
+    }// postsRepository에서 넘어온 결과를 postslistresponsedto로 map을 통해 변환하고 그걸 list로 반환하는 함수이다.
 }
