@@ -64,7 +64,7 @@ var main = {
             contentType:'application/json; charset=utf-8'
         }).done(function() {
             alert('글이 삭제되었습니다.');
-            window.location.href = '/';// 글이 등록되면 '/' 메인페이지로 넘어감
+            window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

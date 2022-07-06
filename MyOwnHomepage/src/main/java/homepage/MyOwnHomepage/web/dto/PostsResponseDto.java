@@ -23,10 +23,10 @@ public class PostsResponseDto {
         this.author = author;
     }
     public PostsResponseDto(Posts post){
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.author = author;
+        this.id = post.getId();
+        this.title = post.getTitle();
+        this.content = post.getContent();
+        this.author = post.getAuthor();
     }
 
 
